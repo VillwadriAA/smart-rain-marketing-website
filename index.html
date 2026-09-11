@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Rain — Home</title>
+
+  <!-- Fast path styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 font-sans">
+
+  <!-- NAV -->
+  <nav id="topNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2">
+          <svg width="28" height="28" viewBox="0 0 32 32" class="text-green-700">
+            <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.8"></circle>
+            <path d="M16 6 C12 6, 8 8, 8 12 C8 16, 12 20, 16 26 C20 20, 24 16, 24 12 C24 8, 20 6, 16 6Z" fill="currentColor"></path>
+          </svg>
+          <span class="text-xl font-bold">Smart Rain</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden lg:flex items-center gap-6">
+          <button data-scrollto="features" class="hover:text-blue-600">Features</button>
+          <button data-scrollto="how-it-works" class="hover:text-blue-600">How it works</button>
+          <button data-scrollto="product" class="hover:text-blue-600">Product</button>
+          <button data-scrollto="benefits" class="hover:text-blue-600">Benefits</button>
+          <button data-scrollto="use-cases" class="hover:text-blue-600">Use cases</button>
+          <button data-scrollto="faq" class="hover:text-blue-600">FAQ</button>
+          <button data-scrollto="contact" class="hover:text-blue-600">Contact</button>
+
+          <!-- User Menu / Sign in -->
+          <div id="userArea" class="relative">
+            <!-- If signed in, JS will replace this with initials button + dropdown -->
+            <button data-open="login" class="rounded-lg border px-3 py-1">Sign in</button>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="lg:hidden rounded p-2 border">Menu</button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t bg-white">
+        <div class="px-3 py-2 grid gap-1">
+          <button data-scrollto="features" class="text-left py-2">Features</button>
+          <button data-scrollto="how-it-works" class="text-left py-2">How it works</button>
+          <button data-scrollto="product" class="text-left py-2">Product</button>
+          <button data-scrollto="benefits" class="text-left py-2">Benefits</button>
+          <button data-scrollto="use-cases" class="text-left py-2">Use cases</button>
+          <button data-scrollto="faq" class="text-left py-2">FAQ</button>
+          <button data-scrollto="contact" class="text-left py-2">Contact</button>
+          <div id="userAreaMobile" class="pt-2">
+            <button data-open="login" class="w-full rounded-lg border px-3 py-2">Sign in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <img src="./assets/hero-farm.jpg" alt="NZ farm" class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+    </div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+      <div class="max-w-4xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          Smart Rain — IoT-powered rainwater & irrigation for <span class="text-blue-300">NZ farms</span>
+        </h1>
+        <p class="mt-6 text-xl text-white/90 max-w-2xl">
+          Optimise water usage, protect crops, and reduce costs with intelligent sensors designed for New Zealand conditions.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <button data-scrollto="contact" class="rounded-lg bg-blue-600 text-white px-5 py-3">Book a Demo</button>
+          <button data-scrollto="how-it-works" class="rounded-lg border border-white/30 text-white px-5 py-3">Learn More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM / SOLUTION -->
+  <section class="py-20 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-3xl font-bold">The Challenge</h2>
+        <ul class="mt-6 space-y-3 text-gray-700">
+          <li>• Unpredictable rainfall patterns affecting crop yields</li>
+          <li>• Water restrictions and rising compliance costs</li>
+          <li>• Manual monitoring leading to overwatering or stress</li>
+          <li>• Limited visibility into system performance</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-3xl font-bold text-blue-700">Our Solution</h2>
+        <ul class="mt-6 space-y-3 text-gray-700">
+          <li>✔ Real-time monitoring of rainfall, tank levels, and soil moisture</li>
+          <li>✔ Weather-aware irrigation scheduling</li>
+          <li>✔ Smart pump control with safety cut-offs</li>
+          <li>✔ Compliance-ready reporting</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold">Key Features</h2>
+        <p class="text-lg text-gray-600">Everything you need to take control of your farm’s water</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- six simple feature cards -->
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">⏱</div>
+          <h3 class="font-semibold">Live Sensor Data</h3>
+          <p class="text-gray-600 text-sm">Real-time rainfall, tank levels, flow and soil moisture.</p>
+        </div>
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">⚙</div>
+          <h3 class="font-semibold">Smart Pump Control</h3>
+          <p class="text-gray-600 text-sm">Automated pumps with dry-run protection.</p>
+        </div>
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">☁</div>
+          <h3 class="font-semibold">Weather-Aware</h3>
+          <p class="text-gray-600 text-sm">Schedules adapt to forecasts.</p>
+        </div>
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">🔔</div>
+          <h3 class="font-semibold">Alerts</h3>
+          <p class="text-gray-600 text-sm">SMS/email notifications & insights.</p>
+        </div>
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">📍</div>
+          <h3 class="font-semibold">Multi-Farm</h3>
+          <p class="text-gray-600 text-sm">Manage multiple properties in one place.</p>
+        </div>
+        <div class="rounded-xl border p-5 shadow-sm">
+          <div class="w-12 h-12 rounded-lg bg-blue-600 text-white grid place-items-center mb-3">🔒</div>
+          <h3 class="font-semibold">Secure Cloud</h3>
+          <p class="text-gray-600 text-sm">Enterprise-grade security.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="py-20 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold">How It Works</h2>
+        <p class="text-lg text-gray-600">Three simple steps</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-bold mx-auto mb-4">01</div>
+          <h3 class="text-xl font-semibold">Install</h3>
+          <p class="text-gray-600">Technicians install weather-resistant sensors at key points.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-bold mx-auto mb-4">02</div>
+          <h3 class="text-xl font-semibold">Monitor</h3>
+          <p class="text-gray-600">View real-time data via dashboard or mobile.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-blue-600 text-white grid place-items-center text-xl font-bold mx-auto mb-4">03</div>
+          <h3 class="text-xl font-semibold">Automate</h3>
+          <p class="text-gray-600">Enable smart irrigation schedules tuned to your farm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT HIGHLIGHTS -->
+  <section id="product" class="py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <h2 class="text-4xl font-bold">Product Highlights</h2>
+        <p class="text-lg text-gray-600">Hardware + software built for NZ</p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        <div class="rounded-xl overflow-hidden border shadow-sm">
+          <div class="aspect-video overflow-hidden">
+            <img src="./assets/sensors.jpg" alt="Sensors" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold">Smart Sensors</h3>
+            <p class="text-gray-600 text-sm">Weather-resistant IoT sensors with long battery life.</p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden border shadow-sm">
+          <div class="aspect-video overflow-hidden">
+            <img src="./assets/dashboard.jpg" alt="Dashboard" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold">Dashboard & Mobile</h3>
+            <p class="text-gray-600 text-sm">Real-time data, alerts and analytics.</p>
+          </div>
+        </div>
+        <div class="rounded-xl overflow-hidden border shadow-sm">
+          <div class="aspect-video overflow-hidden">
+            <img src="./assets/hero-farm.jpg" alt="Cloud & Security" class="w-full h-full object-cover">
+          </div>
+          <div class="p-5">
+            <h3 class="font-semibold">Cloud & Security</h3>
+            <p class="text-gray-600 text-sm">Bank-level encryption and 99.9% uptime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <!-- BENEFITS -->
+<section id="benefits" class="relative py-24 overflow-hidden">
+  <!-- soft background gradient -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-100 to-white"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Benefits</h2>
+      <p class="mt-3 text-lg text-slate-500">See the difference Smart Rain makes to your operation</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- item -->
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Save 20–30% on water usage</span>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Reduce pump running costs</span>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Protect crops from stress</span>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Meet compliance requirements</span>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Peace of mind 24/7</span>
+      </div>
+
+      <div class="flex items-center gap-4 rounded-2xl bg-white/90 backdrop-blur border border-slate-200 shadow-sm px-6 py-4 hover:shadow-md transition-shadow">
+        <span class="inline-grid place-items-center w-9 h-9 rounded-full bg-violet-600 text-white text-lg">✓</span>
+        <span class="text-slate-800 font-medium">Increase property value</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- USE CASES -->
+<!-- USE CASES -->
+<section id="use-cases" class="relative py-24 overflow-hidden">
+  <!-- gradient background -->
+  <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-slate-100/60 to-white"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Use Cases</h2>
+      <p class="mt-3 text-lg text-slate-500">
+        Smart Rain works for operations of all sizes across New&nbsp;Zealand
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <!-- Small Farms -->
+      <div class="group">
+        <div class="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 text-white grid place-items-center text-3xl shadow-md group-hover:scale-105 transition-transform">🌱</div>
+        <h3 class="text-lg font-semibold text-slate-800 mb-1">Small Farms</h3>
+        <p class="text-slate-500 text-sm">Perfect for dairy, sheep, and beef operations</p>
+      </div>
+
+      <!-- Lifestyle Blocks -->
+      <div class="group">
+        <div class="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 text-white grid place-items-center text-3xl shadow-md group-hover:scale-105 transition-transform">🏡</div>
+        <h3 class="text-lg font-semibold text-slate-800 mb-1">Lifestyle Blocks</h3>
+        <p class="text-slate-500 text-sm">Ideal for hobby farms and rural properties</p>
+      </div>
+
+      <!-- Horticulture -->
+      <div class="group">
+        <div class="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 text-white grid place-items-center text-3xl shadow-md group-hover:scale-105 transition-transform">🍇</div>
+        <h3 class="text-lg font-semibold text-slate-800 mb-1">Horticulture</h3>
+        <p class="text-slate-500 text-sm">Optimised for orchards, vineyards, and market gardens</p>
+      </div>
+
+      <!-- Councils -->
+      <div class="group">
+        <div class="mx-auto mb-5 w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-sky-500 text-white grid place-items-center text-3xl shadow-md group-hover:scale-105 transition-transform">🏛️</div>
+        <h3 class="text-lg font-semibold text-slate-800 mb-1">Councils</h3>
+        <p class="text-slate-500 text-sm">Municipal water management and conservation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- PRICING + PAYMENT METHODS (from PaymentMethods.tsx) -->
+  <section id="pricing" class="py-20 bg-gray-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold">Choose Your Smart Rain Plan</h2>
+        <p class="text-lg text-gray-600">Flexible pricing for farms of all sizes.</p>
+      </div>
+
+      <!-- payment method badges -->
+      <div class="mb-16">
+        <h3 class="text-2xl font-bold text-center mb-8">Secure Payment Options</h3>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          <div class="p-4 text-center bg-white rounded-lg border shadow-sm">
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg grid place-items-center mx-auto mb-3">💳</div>
+            <div class="font-semibold">Credit & Debit Cards</div>
+            <div class="text-sm text-gray-600">Visa, Mastercard, Amex</div>
+            <div class="text-green-600 text-xs mt-1">✔ Supported</div>
+          </div>
+          <div class="p-4 text-center bg-white rounded-lg border shadow-sm">
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg grid place-items-center mx-auto mb-3">📱</div>
+            <div class="font-semibold">Digital Wallets</div>
+            <div class="text-sm text-gray-600">Apple Pay, Google Pay</div>
+            <div class="text-green-600 text-xs mt-1">✔ Supported</div>
+          </div>
+          <div class="p-4 text-center bg-white rounded-lg border shadow-sm">
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg grid place-items-center mx-auto mb-3">🌐</div>
+            <div class="font-semibold">Bank Transfer</div>
+            <div class="text-sm text-gray-600">NZ banks</div>
+            <div class="text-green-600 text-xs mt-1">✔ Supported</div>
+          </div>
+          <div class="p-4 text-center bg-white rounded-lg border shadow-sm">
+            <div class="w-12 h-12 bg-blue-600 text-white rounded-lg grid place-items-center mx-auto mb-3">🛡</div>
+            <div class="font-semibold">Secure Checkout</div>
+            <div class="text-sm text-gray-600">256-bit SSL</div>
+            <div class="text-green-600 text-xs mt-1">✔ Supported</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- plans -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Starter -->
+        <div class="relative rounded-xl border bg-white shadow-sm p-6">
+          <h4 class="text-2xl font-semibold text-center">Starter</h4>
+          <div class="text-4xl font-bold text-center my-3">$299</div>
+          <div class="text-center text-sm text-gray-500 mb-4">per month, GST incl.</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✔ Up to 5 sensors</li>
+            <li>✔ Basic dashboard</li>
+            <li>✔ Email alerts</li>
+            <li>✔ Monthly reports</li>
+            <li>✔ Phone support</li>
+          </ul>
+          <button data-plan="Starter" data-stripe="https://buy.stripe.com/test_xxxxxx1" class="mt-6 w-full rounded-lg bg-blue-600 text-white px-4 py-2">Get Starter Plan</button>
+        </div>
+
+        <!-- Growth (popular) -->
+        <div class="relative rounded-xl border bg-white shadow-lg ring-2 ring-blue-600 p-6">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs rounded-full px-3 py-1">Most Popular</div>
+          <h4 class="text-2xl font-semibold text-center">Growth</h4>
+          <div class="text-4xl font-bold text-center my-3">$599</div>
+          <div class="text-center text-sm text-gray-500 mb-4">per month, GST incl.</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✔ Up to 15 sensors</li>
+            <li>✔ Advanced analytics</li>
+            <li>✔ SMS + email alerts</li>
+            <li>✔ Weekly reports</li>
+            <li>✔ Mobile app</li>
+            <li>✔ Priority support</li>
+          </ul>
+          <button data-plan="Growth" data-stripe="https://buy.stripe.com/test_xxxxxx2" class="mt-6 w-full rounded-lg bg-blue-600 text-white px-4 py-2">Get Growth Plan</button>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="relative rounded-xl border bg-white shadow-sm p-6">
+          <h4 class="text-2xl font-semibold text-center">Enterprise</h4>
+          <div class="text-4xl font-bold text-center my-3">$1299</div>
+          <div class="text-center text-sm text-gray-500 mb-4">per month, GST incl.</div>
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✔ Unlimited sensors</li>
+            <li>✔ Custom integrations</li>
+            <li>✔ Priority support</li>
+            <li>✔ Real-time reports</li>
+            <li>✔ Multi-user access</li>
+            <li>✔ Dedicated account manager</li>
+          </ul>
+          <button data-plan="Enterprise" data-stripe="https://buy.stripe.com/test_xxxxxx3" class="mt-6 w-full rounded-lg bg-blue-600 text-white px-4 py-2">Get Enterprise Plan</button>
+        </div>
+      </div>
+
+      <p class="mt-10 text-center text-sm text-gray-600">
+        <strong>Demo Mode:</strong> Test payments use Stripe test mode (e.g., 4242 4242 4242 4242).
+      </p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8">
+      <div class="rounded-xl border bg-white shadow-sm p-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-blue-600 text-white grid place-items-center font-bold">JM</div>
+          <div>
+            <blockquote class="text-gray-700 mb-2">“We cut water usage by 25% while improving pasture health.”</blockquote>
+            <div class="font-semibold">John Mitchell</div>
+            <div class="text-sm text-gray-500">Dairy Farmer, Canterbury</div>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-xl border bg-white shadow-sm p-6">
+        <div class="flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-indigo-600 text-white grid place-items-center font-bold">ST</div>
+          <div>
+            <blockquote class="text-gray-700 mb-2">“Optimised irrigation paid for itself in 8 months.”</blockquote>
+            <div class="font-semibold">Sarah Thompson</div>
+            <div class="text-sm text-gray-500">Vineyard Owner, Marlborough</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-gray-50">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold">Frequently Asked Questions</h2>
+        <p class="text-gray-600">Everything you need to know</p>
+      </div>
+
+      <div class="space-y-4">
+        <!-- Accordion item -->
+        <div class="border rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-medium flex items-center justify-between" data-acc-btn>
+            How do sensors connect and what’s the range?
+            <span>▾</span>
+          </button>
+          <div class="px-4 pb-4 text-gray-600 hidden" data-acc-panel>
+            Cellular (4G/LTE). Up to ~2km from base; boosters available.
+          </div>
+        </div>
+
+        <div class="border rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-medium flex items-center justify-between" data-acc-btn>
+            Can I start small and expand later?
+            <span>▾</span>
+          </button>
+          <div class="px-4 pb-4 text-gray-600 hidden" data-acc-panel>
+            Yes — add sensors anytime; plans are designed to scale.
+          </div>
+        </div>
+
+        <div class="border rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-medium flex items-center justify-between" data-acc-btn>
+            Will this work with my existing pumps?
+            <span>▾</span>
+          </button>
+          <div class="px-4 pb-4 text-gray-600 hidden" data-acc-panel>
+            We integrate with most pump/irrigation systems; adapters as needed.
+          </div>
+        </div>
+
+        <div class="border rounded-lg">
+          <button class="w-full text-left px-4 py-3 font-medium flex items-center justify-between" data-acc-btn>
+            How secure is my data?
+            <span>▾</span>
+          </button>
+          <div class="px-4 pb-4 text-gray-600 hidden" data-acc-panel>
+            Bank-level encryption; NZ-based storage; you own your data.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold">Get Started Today</h2>
+        <p class="text-gray-600">Free consultation — tell us about your farm</p>
+      </div>
+
+      <form id="contactForm" class="bg-white border rounded-xl p-6 shadow-sm space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <label class="text-sm">Name *
+            <input class="mt-1 w-full rounded-md border px-3 py-2" required>
+          </label>
+          <label class="text-sm">Email *
+            <input type="email" class="mt-1 w-full rounded-md border px-3 py-2" required>
+          </label>
+        </div>
+        <label class="text-sm">Farm Size
+          <select class="mt-1 w-full rounded-md border px-3 py-2">
+            <option value="">Select farm size</option>
+            <option value="small">Small (0–50 ha)</option>
+            <option value="medium">Medium (50–200 ha)</option>
+            <option value="large">Large (200+ ha)</option>
+            <option value="lifestyle">Lifestyle block</option>
+          </select>
+        </label>
+        <label class="text-sm">Message
+          <textarea rows="4" class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Tell us your challenges…"></textarea>
+        </label>
+        <button class="w-full rounded-lg bg-blue-600 text-white px-4 py-2">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <svg width="28" height="28" viewBox="0 0 32 32">
+              <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.8"></circle>
+              <path d="M16 6 C12 6, 8 8, 8 12 C8 16, 12 20, 16 26 C20 20, 24 16, 24 12 C24 8, 20 6, 16 6Z" fill="currentColor"></path>
+            </svg>
+            <span class="text-xl font-bold">Smart Rain</span>
+          </div>
+          <p class="text-white/80 max-w-md">
+            IoT-powered rainwater & irrigation management for New Zealand farms.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-3">Quick Links</h3>
+          <div class="space-y-2">
+            <button data-scrollto="features" class="block text-white/80 hover:text-white">Features</button>
+            <button data-scrollto="how-it-works" class="block text-white/80 hover:text-white">How it works</button>
+            <button data-scrollto="benefits" class="block text-white/80 hover:text-white">Benefits</button>
+            <button data-scrollto="faq" class="block text-white/80 hover:text-white">FAQ</button>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-3">Contact</h3>
+          <div class="space-y-1 text-white/80">
+            <div>hello@smartrain.nz</div>
+            <div>0800 SMART RAIN</div>
+            <div>Auckland, New Zealand</div>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-white/20 mt-8 pt-6 text-center text-white/60">
+        © 2024 Smart Rain. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" class="hidden fixed bottom-8 right-8 w-12 h-12 rounded-full bg-blue-600 text-white shadow-lg">↑</button>
+
+  <!-- MODALS (from AuthModals.tsx, simplified) -->
+  <div id="loginModal" data-modal hidden class="modal">
+    <div class="panel">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Sign in to Smart Rain</h2>
+        <button data-close-modal class="text-gray-500">✕</button>
+      </div>
+      <form id="loginForm" class="mt-4 space-y-3">
+        <label class="block text-sm">Email
+          <input type="email" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="farmer@example.com">
+        </label>
+        <label class="block text-sm">Password
+          <input type="password" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="••••••••">
+        </label>
+        <div class="flex items-center justify-between">
+          <button type="button" data-open="forgot" class="text-sm text-blue-600 hover:underline">Forgot password?</button>
+        </div>
+        <button class="w-full rounded-lg bg-blue-600 text-white px-4 py-2">Sign in</button>
+        <div class="text-center text-sm text-gray-600">
+          Don’t have an account?
+          <button type="button" data-open="signup" class="text-blue-600 hover:underline">Sign up</button>
+        </div>
+        <div class="text-center text-xs text-gray-500 mt-2">Demo only — no real auth</div>
+      </form>
+    </div>
+  </div>
+
+  <div id="signupModal" data-modal hidden class="modal">
+    <div class="panel">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Create your account</h2>
+        <button data-close-modal class="text-gray-500">✕</button>
+      </div>
+      <form id="signupForm" class="mt-4 space-y-3">
+        <label class="block text-sm">Full Name
+          <input required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="John Smith">
+        </label>
+        <label class="block text-sm">Email
+          <input type="email" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="farmer@example.com">
+        </label>
+        <label class="block text-sm">Password
+          <input type="password" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="Create a password">
+        </label>
+        <label class="flex items-center gap-2 text-sm">
+          <input type="checkbox" required>
+          I agree to the Terms and Privacy
+        </label>
+        <button class="w-full rounded-lg bg-blue-600 text-white px-4 py-2">Create account</button>
+        <div class="text-center text-sm text-gray-600">
+          Already have an account?
+          <button type="button" data-open="login" class="text-blue-600 hover:underline">Sign in</button>
+        </div>
+        <div class="text-center text-xs text-gray-500 mt-2">Demo only — no real auth</div>
+      </form>
+    </div>
+  </div>
+
+  <div id="forgotModal" data-modal hidden class="modal">
+    <div class="panel">
+      <div class="flex items-center justify-between">
+        <h2 class="text-lg font-semibold">Reset your password</h2>
+        <button data-close-modal class="text-gray-500">✕</button>
+      </div>
+      <form id="forgotForm" class="mt-4 space-y-3">
+        <label class="block text-sm">Email
+          <input type="email" required class="mt-1 w-full rounded-md border px-3 py-2" placeholder="farmer@example.com">
+        </label>
+        <button class="w-full rounded-lg bg-blue-600 text-white px-4 py-2">Send reset link</button>
+        <div class="text-center text-sm">
+          Remember?
+          <button type="button" data-open="login" class="text-blue-600 hover:underline">Sign in</button>
+        </div>
+        <div class="text-center text-xs text-gray-500 mt-2">Demo only — no real email</div>
+      </form>
+    </div>
+  </div>
+
+  <!-- scripts -->
+  <script src="./js/app.js" defer></script>
+  <script src="./js/auth.js" defer></script>
+  <script src="./js/landing.js" defer></script>
+</body>
+</html>

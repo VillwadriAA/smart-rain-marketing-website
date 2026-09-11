@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout Canceled</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900 grid place-items-center p-4">
+  <div class="w-full max-w-md">
+    <div class="flex justify-center mb-8">
+      <div class="flex items-center gap-2">
+        <svg width="32" height="32" viewBox="0 0 32 32" class="text-amber-700">
+          <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.8"></circle>
+          <path d="M16 6 C12 6, 8 8, 8 12 C8 16, 12 20, 16 26 C20 20, 24 16, 24 12 C24 8, 20 6, 16 6Z" fill="currentColor"></path>
+        </svg>
+        <span class="text-xl font-bold">Smart Rain</span>
+      </div>
+    </div>
+
+    <div class="rounded-xl border bg-white">
+      <div class="p-6 text-center border-b">
+        <div class="mx-auto mb-4 w-16 h-16 bg-amber-100 rounded-full grid place-items-center">
+          <span class="text-2xl">✖</span>
+        </div>
+        <h1 class="text-2xl font-semibold text-amber-900">Checkout Canceled</h1>
+        <p class="text-gray-600">No charges were made. You can try again anytime.</p>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+          <h3 class="font-semibold text-amber-900 mb-2">No worries!</h3>
+          <p class="text-sm text-amber-700">
+            Your payment was not processed and no charges were made to your account.
+            You can return to our pricing page whenever you're ready to get started with Smart Rain.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="index.html#pricing" class="flex-1 rounded-lg bg-blue-600 text-white px-4 py-2 text-center">Return to Pricing</a>
+          <a href="index.html" class="flex-1 rounded-lg border px-4 py-2 text-center">Back to Home</a>
+        </div>
+
+        <div class="mt-6 p-3 bg-gray-100 rounded-lg">
+          <p class="text-xs text-gray-600 text-center">
+            <strong>Demo checkout</strong> — This was a test checkout process for demonstration purposes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- No extra JS needed -->
+</body>
+</html>

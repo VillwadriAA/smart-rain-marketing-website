@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Rain — Account</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-900">
+  <!-- Success banner (shown when coming from payment-success) -->
+  <div id="planBanner" class="hidden bg-green-50 border-b border-green-200">
+    <div class="mx-auto max-w-4xl p-3 text-sm text-green-800">
+      <strong>Plan activated!</strong>
+      <span id="planBannerText" class="ml-1"></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="border-b bg-white">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2">
+          <svg width="28" height="28" viewBox="0 0 32 32" class="text-green-700">
+            <circle cx="16" cy="12" r="3" fill="currentColor" opacity="0.8"></circle>
+            <path d="M16 6 C12 6, 8 8, 8 12 C8 16, 12 20, 16 26 C20 20, 24 16, 24 12 C24 8, 20 6, 16 6Z" fill="currentColor"></path>
+          </svg>
+          <span class="text-xl font-bold">Smart Rain</span>
+        </a>
+        <button data-signout class="rounded-lg border px-3 py-1">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div>
+      <h1 class="text-3xl font-bold tracking-tight">Account</h1>
+      <p class="text-gray-600">Manage your Smart Rain account and subscription</p>
+    </div>
+
+    <!-- Profile Card -->
+    <section class="rounded-xl border bg-white">
+      <div class="p-6 border-b">
+        <h2 class="text-lg font-semibold flex items-center gap-2">
+          <!-- icon -->
+          <span>Profile</span>
+        </h2>
+        <p class="text-sm text-gray-600">Your account information</p>
+      </div>
+      <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-sm font-medium text-gray-500">Name</label>
+          <p id="acctName" class="text-sm">—</p>
+        </div>
+        <div>
+          <label class="text-sm font-medium text-gray-500">Email</label>
+          <p id="acctEmail" class="text-sm">—</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscription Card -->
+    <section class="rounded-xl border bg-white">
+      <div class="p-6 border-b">
+        <h2 class="text-lg font-semibold flex items-center gap-2">
+          <span>Subscription</span>
+        </h2>
+        <p class="text-sm text-gray-600">Your current plan and billing information</p>
+      </div>
+
+      <!-- Active -->
+      <div id="subActive" class="p-6 space-y-4 hidden">
+        <div class="flex items-center justify-between">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <h3 class="font-semibold"><span id="planName">—</span> Plan</h3>
+              <span class="inline-flex items-center gap-1 rounded-lg px-2 py-1 text-xs bg-green-100 text-green-800">
+                <span>✔</span> Active
+              </span>
+            </div>
+            <p class="text-sm text-gray-600">
+              Your Smart Rain <span id="planNameLower">—</span> plan is active and ready to use.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-4 bg-green-50 border border-green-200 rounded-lg">
+          <h4 class="font-medium text-green-900">All set!</h4>
+          <p class="text-sm text-green-700">
+            Your sensors and dashboard are ready to help optimize your farm's water management.
+          </p>
+        </div>
+      </div>
+
+      <!-- Inactive -->
+      <div id="subInactive" class="p-6 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-500">⚠</span>
+          <h3 class="font-semibold">No active plan (demo)</h3>
+        </div>
+        <p class="text-sm text-gray-600">
+          Choose a plan to start managing your farm's water systems with Smart Rain.
+        </p>
+        <a href="index.html#pricing" class="inline-block rounded-lg bg-blue-600 text-white px-4 py-2">Choose a plan</a>
+      </div>
+    </section>
+
+    <!-- Demo Notice -->
+    <section class="rounded-xl border bg-amber-50 border-amber-200">
+      <div class="p-6">
+        <div class="flex items-start gap-3">
+          <span class="text-amber-600">ℹ</span>
+          <div>
+            <h4 class="font-medium text-amber-900">Demo Account</h4>
+            <p class="text-sm text-amber-700">
+              This is a demonstration account. In a real implementation, you would see actual sensor data,
+              billing information, and device management options here.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/app.js" defer></script>
+  <script src="./js/account.js" defer></script>
+</body>
+</html>
